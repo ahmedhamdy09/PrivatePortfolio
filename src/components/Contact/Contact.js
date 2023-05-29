@@ -30,29 +30,32 @@ export const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setButtonText("Sending...");
-    emailjs
-      .sendForm(
-        "service_40uj9pn",
-        "template_jljrk6o",
-        e.target,
-        "qtlVIvry6I-Jp8pdJ"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          console.log("message sent");
-          console.log(e.target.reset());
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-    e.target.reset();
-    setFormDetails({
-      name: "",
-      email: "",
-      message: "",
-    });
+    setTimeout(() => {
+      emailjs
+        .sendForm(
+          "service_40uj9pn",
+          "template_jljrk6o",
+          e.target,
+          "qtlVIvry6I-Jp8pdJ"
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+            console.log("message sent");
+            console.log(e.target.reset());
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
+      e.target.reset();
+      setFormDetails({
+        name: "",
+        email: "",
+        message: "",
+      });
+      setButtonText("Sending Done");
+    }, 3000);
   };
 
   return (
