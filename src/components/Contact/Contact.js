@@ -54,7 +54,7 @@ export const Contact = () => {
         email: "",
         message: "",
       });
-      setButtonText("Sending Done");
+      setButtonText("Sent");
     }, 3000);
   };
 
